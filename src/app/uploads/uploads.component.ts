@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SocketService } from '../socket.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-uploads',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './uploads.component.html',
   styleUrls: ['./uploads.component.scss']
 })
