@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-    <div class="text-center">
-      <img
-        class="mb-4"
-        src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-        style="width: 250px; height: 90px"
-      />
-      <h5 class="mb-3">Thank you for using our product. We're glad you're with us.</h5>
-      <p class="mb-3">MDB Team</p>
-      <p>
-        PS. We'll be releasing "How to build your first project with MDB 5 Angular" tutorial soon.
-      </p>
-      <a
-      class="btn btn-primary btn-lg"
-      href=" https://mdbootstrap.com/newsletter/"
-      target="_blank"
-      role="button"
-      >Join now</a
-      >
+<mdb-sidenav #sidenav class="sidenav">
+  <mdb-sidenav-content>
+    <div style="height: 100vh;">
+      <router-outlet></router-outlet>
     </div>
-  </div>
-</div>
+  </mdb-sidenav-content>
+  <mdb-sidenav-menu>
+    <mdb-sidenav-item>
+      <a class="sidenav-link" routerLink="/dashboard" routerLinkActive="active">
+        <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+      </a>
+    </mdb-sidenav-item>
+    <mdb-sidenav-item>
+      <a class="sidenav-link" routerLink="/uploads" routerLinkActive="active">
+        <i class="fas fa-cloud-upload-alt fa-fw me-3"></i><span>Uploads</span>
+      </a>
+    </mdb-sidenav-item>
+    <mdb-sidenav-item>
+      <a class="sidenav-link" routerLink="/account" routerLinkActive="active">
+        <i class="fas fa-user-circle fa-fw me-3"></i><span>Account</span>
+      </a>
+    </mdb-sidenav-item>
+  </mdb-sidenav-menu>
+</mdb-sidenav>
+<router-outlet></router-outlet>
