@@ -48,6 +48,25 @@ app.post('/upload', upload.single('file'), (req, res) => {
   }
 });
 
+app.post('/generate-tweets', async (req, res) => {
+  const { message } = req.body;
+
+  try {
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `Generate 5 different versions of the following tweet: "${message}"`,
+      max_tokens: 2048,
+      n: 5,
+      stop: null,
+      temperature: 0.7,
+    });
+
+    res.json(response.data.choices);
+  } catch (error) {
+    res.status(500).json({ error: 'Error generating tweets' });
+  }
+});
+
 const { TwitterApi } = require('twitter-api-v2');
 
 app.post('/post-tweet', async (req, res) => {
